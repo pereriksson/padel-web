@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "lupio black";
+  src: url("../src/fonts/Fontspring-DEMO-lupio-black.otf") format("opentype")
+}
+
+@font-face {
+  font-family: "lupio bold";
+  src: url("../src/fonts/Fontspring-DEMO-lupio-bold.otf") format("opentype")
+}
+
+body {
+
+}
+
+.header {
+  background: rgba(31, 91, 90, 1);
+  height: 107px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+
+    &__logo {
+      display: flex;
+      align-items: center;
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    a {
+      color: rgba(241, 236, 232, 1);
+      font-family: "lupio bold", sans-serif;
+      text-transform: uppercase;
+    }
+  }
+
+  button {
+    background: rgba(241, 236, 232, 1);
+    border-radius: 30px;
+    box-shadow: -5.45px 5.45px 0px 0px rgba(18, 58, 58, 1);
+    width: 161px;
+    height: 59px;
+    top: 24px;
+    left: 1179px;
+    padding: 18px 23px 19px 24px;
+    font-family: "lupio bold", sans-serif;
+    color: rgba(31, 91, 90, 1);
+    text-transform: uppercase;
+  }
+}

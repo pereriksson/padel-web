@@ -1,7 +1,7 @@
 import {Metadata} from "next";
 import {Fragment} from "react";
 
-export default function Page() {
+export default function Page () {
   return (
     <Fragment>
       <p>contact us</p>

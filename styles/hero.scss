@@ -1,0 +1,45 @@
+.hero {
+  background: rgba(31, 91, 90, 1);
+  padding: 100px;
+
+  &__inner {
+    display: flex;
+
+    &__left {
+      width: 60%;
+
+      h1 {
+        font-family: "lupio black", sans-serif;
+        font-size: 115.7px;
+        font-weight: 900;
+        line-height: 120px;
+        letter-spacing: -0.01em;
+        text-align: left;
+        color: rgba(241, 232, 219, 1);
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      h2 {
+        font-family: "lupio bold", sans-serif;
+        font-size: 39.3px;
+        font-weight: 900;
+        line-height: 63.78px;
+        text-align: left;
+        color: rgba(241, 232, 219, 1);
+        text-transform: uppercase;
+        margin: 0;
+      }
+    }
+
+    &__right {
+      position: relative;
+      width: 40%;
+
+      img {
+        rotate: 3.93deg;
+        object-fit: contain;
+      }
+    }
+  }
+}

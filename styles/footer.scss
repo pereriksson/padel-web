@@ -1,0 +1,32 @@
+.footer {
+  color: rgba(241, 232, 219, 1);
+  background: rgba(18, 58, 58, 1);
+  padding: 93px 100px;
+
+  &__inner {
+    display: flex;
+    gap: 153px;
+
+    &__right {
+      display: flex;
+      gap: 3rem;
+
+      &__column {
+        h2 {
+          font-family: "lupio bold", sans-serif;
+          font-size: 15px;
+          line-height: 34.74px;
+          text-transform: uppercase;
+        }
+
+        p {
+          font-family: Inter, sans-serif;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 20.54px;
+          text-align: left;
+        }
+      }
+    }
+  }
+}

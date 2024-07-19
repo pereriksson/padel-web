@@ -3,12 +3,12 @@ import {subscribeUserToList} from "@/apis/api";
 import {useRef, useState} from "react";
 
 export default function Newsletter() {
-  const email = useRef(null)
+  const email = useRef<HTMLInputElement>(null)
   const [subscribed, setSubscribed] = useState<boolean>(false)
 
   async function subscribe(e: any) {
     e.preventDefault()
-    if (!email.current.value) return
+    if (!email.current || !email.current.value) return
     await subscribeUserToList(email.current.value)
     setSubscribed(true)
   }

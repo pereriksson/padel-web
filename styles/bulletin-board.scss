@@ -1,0 +1,45 @@
+.bulletin-board {
+  overflow: hidden;
+
+  h3 {
+    font-family: "Lupio Black", sans-serif;
+    font-size: 115.7px;
+    font-weight: 900;
+    line-height: 120px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: rgba(31, 91, 90, 1);
+    text-transform: uppercase;
+  }
+
+  h4 {
+    font-family: Inter, sans-serif;
+    font-size: 33.3px;
+    font-weight: 900;
+    line-height: 63.78px;
+    text-align: center;
+    color: rgba(31, 91, 90, 1);
+  }
+
+  .images {
+    display: flex;
+
+    .left, .right {
+      position: relative;
+      height: 100px;
+      width: 50%;
+    }
+
+    .left img {
+      rotate: -15deg;
+      object-fit: contain;
+    }
+
+    .right img {
+      rotate: 15deg;
+      object-fit: contain;
+    }
+  }
+
+
+}

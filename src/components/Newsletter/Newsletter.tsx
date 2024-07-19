@@ -6,7 +6,7 @@ export default function Newsletter() {
   const email = useRef(null)
   const [subscribed, setSubscribed] = useState<boolean>(false)
 
-  async function subscribe(e) {
+  async function subscribe(e: any) {
     e.preventDefault()
     if (!email.current.value) return
     await subscribeUserToList(email.current.value)

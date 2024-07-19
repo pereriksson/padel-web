@@ -17,7 +17,7 @@ export default function Ribbon(props: RibbonProps) {
     <div className={containerClasses}>
       {sentences.map((sentence, index) => {
         return (
-          <Fragment>
+          <Fragment key={index}>
             <span key={index}>INCLUDES NEW FRIENDS AND MORE SMILES</span>
             {index < sentences.length - 1 && (
               <Image src="/images/racket.svg" width="20" height="20" className={theme} alt=""/>

@@ -6,19 +6,13 @@
 @import "./newsletter";
 
 @font-face {
-  font-family: "lupio black";
-  src: url("../src/fonts/Fontspring-DEMO-lupio-black.otf") format("opentype");
-  font-weight: 900;
-}
-
-@font-face {
-  font-family: "lupio black italic";
-  src: url("../src/fonts/Fontspring-DEMO-lupio-black-italic.otf") format("opentype")
-}
-
-@font-face {
   font-family: "lupio bold";
   src: url("../src/fonts/Fontspring-DEMO-lupio-bold.otf") format("opentype")
+}
+
+@font-face {
+  font-family: "lupio black";
+  src: url("../src/fonts/Fontspring-DEMO-lupio-black.otf") format("opentype");
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');

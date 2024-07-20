@@ -1,8 +1,17 @@
 .two-column {
   display: flex;
 
+  @include mobile {
+    flex-direction: column;
+  }
+
   .text, .image {
     width: 50%;
+
+    @include mobile {
+      width: 100%;
+      min-height: 200px;
+    }
   }
 
   .image {

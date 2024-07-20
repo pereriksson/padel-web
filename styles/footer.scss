@@ -12,6 +12,9 @@
       gap: 3rem;
 
       &__column {
+        flex-basis: 0;
+        flex-grow: 1;
+
         h2 {
           font-family: "lupio bold", sans-serif;
           font-size: 15px;

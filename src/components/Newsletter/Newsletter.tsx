@@ -2,7 +2,7 @@
 import {subscribeUserToList} from "@/apis/api";
 import {useRef, useState} from "react";
 
-const validateEmail = (email) => {
+const validateEmail = (email: string) => {
   return String(email)
     .toLowerCase()
     .match(

@@ -7,9 +7,18 @@
     display: flex;
     gap: 153px;
 
+    @include mobile {
+      flex-direction: column;
+      gap: 0;
+    }
+
     &__right {
       display: flex;
       gap: 3rem;
+
+      @include mobile {
+        flex-direction: column;
+      }
 
       &__column {
         flex-basis: 0;

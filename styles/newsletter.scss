@@ -1,13 +1,14 @@
 .newsletter {
   display: flex;
+  gap: 2rem;
   background: rgba(31, 91, 90, 1);
   overflow: hidden;
 
   .left, .right {
     font-family: "Lupio Black", sans-serif;
-    font-size: 161.96px;
+    font-size: 12vw;
     font-weight: 900;
-    line-height: 120px;
+    line-height: 8vw;
     text-align: center;
     color: #356967;
   }
@@ -24,30 +25,34 @@
   .middle {
     flex-grow: 1;
     text-align: center;
+    padding: 2rem 0;
 
     form {
       display: flex;
       justify-content: center;
       gap: 1rem;
+
+      @include mobile {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     h2 {
       font-family: "Lupio Black", sans-serif;
-      font-size: 115.7px;
+      font-size: 10vw;
       font-weight: 900;
-      line-height: 120px;
       letter-spacing: -0.01em;
       text-align: center;
       text-transform: uppercase;
       color: rgba(241, 232, 219, 1);
-      margin-bottom: 0;
+      margin: 0;
     }
 
     p {
       font-family: Inter, sans-serif;
-      font-size: 20.28px;
+      font-size: 3vw;
       font-weight: 400;
-      line-height: 30.91px;
       text-align: center;
       color: rgba(255, 255, 255, 1);
     }
@@ -58,6 +63,10 @@
       height: 25px;
       width: 280px;
       padding: 20px;
+
+      @include mobile {
+        width: 100%;
+      }
     }
 
     button {

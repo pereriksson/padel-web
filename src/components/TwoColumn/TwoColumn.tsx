@@ -29,18 +29,20 @@ export default function TwoColumn(props: TwoColumnProps) {
     </div>
   )
   return (
-    <div className="two-column">
-      {imagePosition === "left" ? (
-        <Fragment>
-          {imagePart}
-          {textPart}
-        </Fragment>
-      ) : (
-        <Fragment>
-          {textPart}
-          {imagePart}
-        </Fragment>
-      )}
+    <div className="container">
+      <div className="two-column">
+        {imagePosition === "left" ? (
+          <Fragment>
+            {imagePart}
+            {textPart}
+          </Fragment>
+        ) : (
+          <Fragment>
+            {textPart}
+            {imagePart}
+          </Fragment>
+        )}
+      </div>
     </div>
   )
 }

@@ -2,6 +2,10 @@
   background: rgba(31, 91, 90, 1);
   padding: 100px;
 
+  @include mobile {
+    padding: 50px;
+  }
+
   &__inner {
     display: flex;
 
@@ -12,6 +16,10 @@
     &__left {
       width: 60%;
 
+      @include mobile {
+        width: 100%;
+      }
+
       h1 {
         font-family: "lupio black", sans-serif;
         font-size: 8vw;
@@ -21,17 +29,24 @@
         color: rgba(241, 232, 219, 1);
         text-transform: uppercase;
         margin: 0;
+
+        @include mobile {
+          font-size: 12vw;
+        }
       }
 
       h2 {
         font-family: "lupio bold", sans-serif;
-        font-size: 39.3px;
+        font-size: 4vw;
         font-weight: 900;
-        line-height: 63.78px;
         text-align: left;
         color: rgba(241, 232, 219, 1);
         text-transform: uppercase;
         margin: 0;
+
+        @include mobile {
+          font-size: 8vw;
+        }
       }
     }
 

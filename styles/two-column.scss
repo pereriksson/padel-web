@@ -24,16 +24,20 @@
 
   .text {
     background: rgba(241, 236, 232, 1);
+
     .inner {
       padding: 70px;
+
+      @include mobile {
+        padding: 35px;
+      }
     }
   }
 
   h3 {
     font-family: "lupio black", sans-serif;
     font-weight: 900;
-    font-size: 72.7px;
-    line-height: 70px;
+    font-size: 5vw;
     color: rgba(31, 91, 90, 1);
     text-transform: uppercase;
     margin: 0;
@@ -46,6 +50,7 @@
     line-height: 30.91px;
     text-align: left;
     color: rgba(81, 81, 81, 1);
+    margin-bottom: 2rem;
   }
 
   a {

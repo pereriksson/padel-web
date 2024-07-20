@@ -51,10 +51,11 @@
 
     p {
       font-family: Inter, sans-serif;
-      font-size: 3vw;
+      font-size: 2vw;
       font-weight: 400;
       text-align: center;
       color: rgba(255, 255, 255, 1);
+      margin-top: 0;
     }
 
     input {
@@ -75,9 +76,7 @@
       top: 25px;
       left: 534.14px;
       padding: 20.29px 25.38px 21.68px 26px;
-      gap: 0px;
       border-radius: 300px;
-      opacity: 0px;
       background: rgba(241, 232, 219, 1);
       border: 0;
     }

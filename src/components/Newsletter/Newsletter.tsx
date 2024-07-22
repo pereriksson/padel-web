@@ -10,7 +10,12 @@ const validateEmail = (email: string) => {
     );
 };
 
-export default function Newsletter() {
+type NewsletterProps = {
+  cfd: any;
+}
+
+export default function Newsletter(props: NewsletterProps) {
+  const {cfd} = props
   const email = useRef<HTMLInputElement>(null)
   const [msg, setMsg] = useState<string>("")
 
@@ -33,8 +38,8 @@ export default function Newsletter() {
         Padel&
       </div>
       <div className="middle">
-        <h2>stay in the know</h2>
-        <p>Enter your email address to receive news and updates from Padel&.</p>
+        <h2>{cfd.fields.title}</h2>
+        <p>{cfd.fields.paragraph}</p>
         {msg && (
           <p>{msg}</p>
         )}

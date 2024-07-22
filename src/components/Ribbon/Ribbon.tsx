@@ -3,24 +3,27 @@ import classNames from "classnames";
 import {Fragment} from "react";
 
 type RibbonProps = {
-  theme: "light" | "dark",
-  sentences: string[]
+  cfd: any;
 }
 
 export default function Ribbon(props: RibbonProps) {
-  const {theme, sentences} = props
+  const {cfd} = props
+
+  if (!cfd) return null
+
   const containerClasses = classNames(
     "ribbon",
-    theme
+    cfd.fields.theme
   )
+  const sentences = cfd.fields.sentences.split("\n")
   return (
     <div className={containerClasses}>
-      {sentences.map((sentence, index) => {
+      {sentences.map((sentence: string[], index: number) => {
         return (
           <Fragment key={index}>
-            <span key={index}>INCLUDES NEW FRIENDS AND MORE SMILES</span>
+            <span key={index}>{sentence}</span>
             {index < sentences.length - 1 && (
-              <Image src="/images/racket.svg" width="20" height="20" className={theme} alt=""/>
+              <Image src="/images/racket.svg" width="20" height="20" className={cfd.fields.theme} alt=""/>
             )}
           </Fragment>
         )

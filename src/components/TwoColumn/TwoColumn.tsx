@@ -1,29 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import {Fragment} from "react";
+import imageUrl from "@/utils/imageUrl";
+import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 
 type TwoColumnProps = {
-  image: string;
-  imagePosition: "left" | "right";
-  headline: string;
-  paragraph: string;
-  buttonLink?: string;
+  cfd: any;
 }
 
 export default function TwoColumn(props: TwoColumnProps) {
-  const {image, imagePosition, headline, paragraph, buttonLink} = props
+  const {cfd} = props
   const imagePart = (
     <div className="image">
-      <Image src={image} fill={true} alt=""/>
+      <Image src={imageUrl(cfd.fields.image.fields.file.url)} fill={true} alt=""/>
     </div>
   )
   const textPart = (
     <div className="text">
       <div className="inner">
-        <h3>{headline}</h3>
-        <p>{paragraph}</p>
-        {buttonLink && (
-          <Link href={buttonLink}>Apply today</Link>
+        <h3>{cfd.fields.headline}</h3>
+        {documentToReactComponents(cfd.fields.paragraph)}
+        {cfd.fields.buttonLink && (
+          <Link className="button" href={cfd.fields.buttonLink}>Apply today</Link>
         )}
       </div>
     </div>
@@ -31,7 +29,7 @@ export default function TwoColumn(props: TwoColumnProps) {
   return (
     <div className="container">
       <div className="two-column">
-        {imagePosition === "left" ? (
+        {cfd.fields.imagePosition === "left" ? (
           <Fragment>
             {imagePart}
             {textPart}

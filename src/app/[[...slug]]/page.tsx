@@ -67,7 +67,7 @@ export async function generateMetadata(
   const entries = await getEntries()
   const page = getPageFromSlug(slug, entries)
 
-  if (!page) return null
+  if (!page) return {}
 
   return {
     title: page.fields.title,

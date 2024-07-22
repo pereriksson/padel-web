@@ -3,6 +3,7 @@ import Link from "next/link";
 import {Fragment} from "react";
 import imageUrl from "@/utils/imageUrl";
 import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
+import classNames from "classnames";
 
 type TwoColumnProps = {
   cfd: any;
@@ -10,6 +11,7 @@ type TwoColumnProps = {
 
 export default function TwoColumn(props: TwoColumnProps) {
   const {cfd} = props
+  const theme = cfd.fields.theme
   const imagePart = (
     <div className="image">
       <Image src={imageUrl(cfd.fields.image.fields.file.url)} fill={true} alt=""/>
@@ -26,9 +28,13 @@ export default function TwoColumn(props: TwoColumnProps) {
       </div>
     </div>
   )
+  const classes = classNames(
+    "two-column",
+    theme
+  )
   return (
     <div className="container">
-      <div className="two-column">
+      <div className={classes}>
         {cfd.fields.imagePosition === "left" ? (
           <Fragment>
             {imagePart}

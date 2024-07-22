@@ -8,6 +8,7 @@ import {getEntries} from "@/apis/api";
 import ContactForm from "@/components/ContactForm/ContactForm";
 import SocialMedia from "@/components/SocialMedia/SocialMedia";
 import Placard from "@/components/Placard/Placard";
+import NotFound from "next/dist/client/components/not-found-error";
 
 function getPageFromSlug(slug: string, entries: any) {
   if (!slug) {
@@ -22,7 +23,7 @@ export default async function Home(props: any) {
   const entries = await getEntries()
   const page = getPageFromSlug(slug, entries)
 
-  if (!page) return null
+  if (!page) return <NotFound/>
 
   return (
     <Fragment>

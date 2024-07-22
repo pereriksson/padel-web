@@ -51,3 +51,26 @@ export default async function Home(props: any) {
     </Fragment>
   );
 }
+
+import type { Metadata, ResolvingMetadata } from 'next'
+
+type Props = {
+  params: { id: string, slug?: string[] }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = params?.slug ? params.slug.join("/") : ''
+  const entries = await getEntries()
+  const page = getPageFromSlug(slug, entries)
+
+  if (!page) return null
+
+  return {
+    title: page.fields.title,
+    description: page.fields.description
+  }
+}

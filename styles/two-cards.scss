@@ -1,0 +1,44 @@
+.two-cards {
+  max-width: 55rem;
+  margin: 0 auto;
+
+  h2 {
+    text-transform: uppercase;
+    color: #1e5b59;
+    font-size: 4.5vw;
+    font-family: "Lupio Black", sans-serif;
+    text-align: center;
+  }
+
+  > p {
+    text-align: center;
+
+  }
+
+  .cards {
+    display: flex;
+    gap: 1rem;
+
+    .card {
+      padding: 1rem;
+
+      p {
+        margin-top: 0;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      &.left-card {
+        color: #fff;
+        background: #1e5b59;
+      }
+
+      &.right-card {
+        color: rgba(81, 81, 81, 1);
+        background: #f1ece8;
+      }
+    }
+  }
+}

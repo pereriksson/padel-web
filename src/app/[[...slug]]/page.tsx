@@ -9,6 +9,8 @@ import ContactForm from "@/components/ContactForm/ContactForm";
 import SocialMedia from "@/components/SocialMedia/SocialMedia";
 import Placard from "@/components/Placard/Placard";
 import NotFound from "next/dist/client/components/not-found-error";
+import type { Metadata, ResolvingMetadata } from 'next'
+import MembershipBenefits from "@/components/MembershipBenefits/MembershipBenefits";
 
 function getPageFromSlug(slug: string, entries: any) {
   if (!slug) {
@@ -36,7 +38,8 @@ export default async function Home(props: any) {
           "newsletter": Newsletter,
           "contactForm": ContactForm,
           "socialMedia": SocialMedia,
-          "placard": Placard
+          "placard": Placard,
+          "membershipBenefits": MembershipBenefits
         }
 
         // @ts-ignore
@@ -52,10 +55,8 @@ export default async function Home(props: any) {
   );
 }
 
-import type { Metadata, ResolvingMetadata } from 'next'
-
 type Props = {
-  params: { id: string, slug?: string[] }
+  params: { slug?: string[] }
   searchParams: { [key: string]: string | string[] | undefined }
 }
 

@@ -1,6 +1,7 @@
 .membership-benefits {
   max-width: 55rem;
   margin: 0 auto;
+  padding: 0 1rem;
 
   h2 {
     text-transform: uppercase;
@@ -20,6 +21,11 @@
     grid-template-rows: 1fr 1fr 1fr;
     gap: 1rem;
 
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
     .card {
       background: #f1ece8;
       padding: 1rem;
@@ -36,11 +42,44 @@
       }
     }
 
+    .card:nth-child(2),
+    .card:nth-child(3),
+    .card:nth-child(6) {
+      color: rgba(31, 91, 90, 1);
+
+      img {
+        filter: invert(25%) sepia(71%) saturate(388%) hue-rotate(129deg) brightness(98%) contrast(91%);
+      }
+    }
+
     .card:nth-child(1),
     .card:nth-child(4),
     .card:nth-child(5) {
       color: #fff;
       background: #1e5b5a;
+
+      img {
+        filter: invert(100%) sepia(31%) saturate(687%) hue-rotate(295deg) brightness(102%) contrast(89%);
+      }
+    }
+
+    @include mobile {
+      .card:nth-child(odd) {
+        background: #1e5b5a;
+        color: #fff;
+
+        img {
+          filter: invert(100%) sepia(31%) saturate(687%) hue-rotate(295deg) brightness(102%) contrast(89%);
+        }
+      }
+      .card:nth-child(even) {
+        background: #f1ece8;
+        color: #000;
+
+        img {
+          filter: invert(25%) sepia(71%) saturate(388%) hue-rotate(129deg) brightness(98%) contrast(91%);
+        }
+      }
     }
   }
 }

@@ -1,4 +1,19 @@
 .social-media {
+  .channels {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    .channel {
+      display: flex;
+      flex-direction: column;
+
+      .image {
+        text-align: center;
+      }
+    }
+  }
+
   h2 {
     color: rgba(31, 91, 90, 1);
     text-align: center;

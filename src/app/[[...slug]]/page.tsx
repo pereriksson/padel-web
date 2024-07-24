@@ -73,7 +73,7 @@ export async function generateMetadata(
   if (!page) return {}
 
   return {
-    title: page.fields.title,
+    title: `${page.fields.title} | Padel&`,
     description: page.fields.description
   }
 }

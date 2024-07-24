@@ -54,8 +54,8 @@ export default function Header() {
         <div className={drawerClasses}>
           <menu>
             {links.map((l, index) => (
-              <li>
-                <Link key={index} onClick={() => setShowDrawer(false)} href={l[0]}>{l[1]}</Link>
+              <li key={index}>
+                <Link onClick={() => setShowDrawer(false)} href={l[0]}>{l[1]}</Link>
               </li>
             ))}
           </menu>

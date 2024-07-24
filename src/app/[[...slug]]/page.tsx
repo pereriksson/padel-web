@@ -12,6 +12,7 @@ import NotFound from "next/dist/client/components/not-found-error";
 import type { Metadata, ResolvingMetadata } from 'next'
 import MembershipBenefits from "@/components/MembershipBenefits/MembershipBenefits";
 import TwoCards from "@/components/TwoCards/TwoCards";
+import Text from "@/components/Text/Text"
 
 function getPageFromSlug(slug: string, entries: any) {
   if (!slug) {
@@ -41,7 +42,8 @@ export default async function Home(props: any) {
           "socialMedia": SocialMedia,
           "placard": Placard,
           "membershipBenefits": MembershipBenefits,
-          "twoCards": TwoCards
+          "twoCards": TwoCards,
+          "text": Text
         }
 
         // @ts-ignore

@@ -1,6 +1,7 @@
 .two-cards {
   max-width: 55rem;
   margin: 0 auto;
+  padding: 0 1rem;
 
   h2 {
     text-transform: uppercase;
@@ -18,6 +19,10 @@
   .cards {
     display: flex;
     gap: 1rem;
+
+    @include mobile {
+      flex-direction: column;
+    }
 
     .card {
       padding: 1rem;

@@ -12,6 +12,11 @@
       gap: 0;
     }
 
+    @include tablet {
+      flex-direction: column;
+      gap: 0;
+    }
+
     &__right {
       display: flex;
       gap: 3rem;

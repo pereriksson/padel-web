@@ -1,4 +1,20 @@
 .social-media {
+  h2 {
+    color: rgba(31, 91, 90, 1);
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Lupio Black", sans-serif;
+    font-size: 8vw;
+    font-weight: 900;
+    margin-bottom: 0;
+  }
+
+  p {
+    text-align: center;
+    white-space: pre-wrap;
+    margin-top: 0;
+  }
+
   .channels {
     display: flex;
     justify-content: center;
@@ -12,19 +28,5 @@
         text-align: center;
       }
     }
-  }
-
-  h2 {
-    color: rgba(31, 91, 90, 1);
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Lupio Black", sans-serif;
-    font-size: 8vw;
-    font-weight: 900;
-  }
-
-  p {
-    text-align: center;
-    white-space: pre-wrap;
   }
 }

@@ -21,6 +21,22 @@ function getPageFromSlug(slug: string, entries: any) {
   return entries.find((e: any) => e.fields.slug === slug)
 }
 
+type ContentTypeSys = {
+  id: string;
+}
+
+type ContentType = {
+  sys: ContentTypeSys
+}
+
+type EntrySys = {
+  contentType: ContentType
+}
+
+type Entry = {
+  sys: EntrySys
+}
+
 export default async function Home(props: any) {
   const slug = props?.params?.slug ? props.params.slug.join("/") : ''
 
@@ -31,23 +47,24 @@ export default async function Home(props: any) {
 
   return (
     <Fragment>
-      {page.fields.content.map((c: any, index: number) => {
-        const mapContentTypeToComponent = {
-          "hero": Hero,
-          "ribbon": Ribbon,
-          "twoColumn": TwoColumn,
-          "bulletinBoard": BulletinBoard,
-          "newsletter": Newsletter,
-          "contactForm": ContactForm,
-          "socialMedia": SocialMedia,
-          "placard": Placard,
-          "membershipBenefits": MembershipBenefits,
-          "twoCards": TwoCards,
-          "text": Text
-        }
+      {page.fields.content.map((c: Entry, index: number) => {
+        const mapContentTypeToComponent = new Map<string, any>(
+          [
+            ["hero", Hero],
+            ["ribbon", Ribbon],
+            ["twoColumn", TwoColumn],
+            ["bulletinBoard", BulletinBoard],
+            ["newsletter", Newsletter],
+            ["contactForm", ContactForm],
+            ["socialMedia", SocialMedia],
+            ["placard", Placard],
+            ["membershipBenefits", MembershipBenefits],
+            ["twoCards", TwoCards],
+            ["text", Text]
+          ]
+        )
 
-        // @ts-ignore
-        const Component = mapContentTypeToComponent[c.sys.contentType.sys.id]
+        const Component = mapContentTypeToComponent.get(c.sys.contentType.sys.id)
 
         if (!Component) return null
 

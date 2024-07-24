@@ -10,6 +10,7 @@ export default function SocialMedia(props: SocialMediaProps) {
   return (
     <div className="social-media">
       <h2>{cfd.fields.title}</h2>
+      <p>Join our community on social media for the latest updates,<br/>tips, and some behind-the-scenes fun:</p>
       <div className="channels">
         <div className="channel">
           <div className="image">

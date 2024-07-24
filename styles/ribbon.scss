@@ -1,10 +1,23 @@
 .ribbon {
   display: flex;
   align-items: center;
-  gap: 1rem;
   height: 16vw;
   max-height: 100px;
   overflow: hidden;
+
+  .rfm-initial-child-container {
+    gap: 1rem;
+  }
+
+  .rfm-child {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .rfm-marquee {
+    display: flex;
+    gap: 1rem;
+  }
 
   span {
     font-family: "lupio black", sans-serif;

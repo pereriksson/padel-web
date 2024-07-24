@@ -1,6 +1,7 @@
 import Image from "next/image";
 import classNames from "classnames";
 import {Fragment} from "react";
+import Marquee from "react-fast-marquee";
 
 type RibbonProps = {
   cfd: any;
@@ -18,16 +19,18 @@ export default function Ribbon(props: RibbonProps) {
   const sentences = cfd.fields.sentences.split("\n")
   return (
     <div className={containerClasses}>
-      {sentences.map((sentence: string[], index: number) => {
-        return (
-          <Fragment key={index}>
-            <span key={index}>{sentence}</span>
-            {index < sentences.length - 1 && (
-              <Image src="/images/racket.svg" width="20" height="20" className={cfd.fields.theme} alt=""/>
-            )}
-          </Fragment>
-        )
-      })}
+      <Marquee>
+        {sentences.map((sentence: string[], index: number) => {
+          return (
+            <Fragment key={index}>
+              <span key={index}>{sentence}</span>
+              {index < sentences.length - 1 && (
+                <Image src="/images/racket.svg" width="20" height="20" className={cfd.fields.theme} alt=""/>
+              )}
+            </Fragment>
+          )
+        })}
+      </Marquee>
     </div>
   )
 }

@@ -9,17 +9,19 @@ export default function TwoCards(props: TwoCardsProps) {
 
   return (
     <div className="two-cards">
-      <h2>{cfd.fields.headline}</h2>
-      {documentToReactComponents(cfd.fields.firstParagraph)}
-      <div className="cards">
-        <div className="card left-card">
-          {documentToReactComponents(cfd.fields.leftCard)}
+      <div className="container">
+        <h2>{cfd.fields.headline}</h2>
+        {documentToReactComponents(cfd.fields.firstParagraph)}
+        <div className="cards">
+          <div className="card left-card">
+            {documentToReactComponents(cfd.fields.leftCard)}
+          </div>
+          <div className="card right-card">
+            {documentToReactComponents(cfd.fields.rightCard)}
+          </div>
         </div>
-        <div className="card right-card">
-          {documentToReactComponents(cfd.fields.rightCard)}
-        </div>
+        {documentToReactComponents(cfd.fields.secondParagraph)}
       </div>
-      {documentToReactComponents(cfd.fields.secondParagraph)}
     </div>
   )
 }

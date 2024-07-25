@@ -19,6 +19,7 @@
   .cards {
     display: flex;
     gap: 1rem;
+    justify-content: center;
 
     @include mobile {
       flex-direction: column;
@@ -26,6 +27,7 @@
 
     .card {
       padding: 1rem;
+      width: calc(50% - .5rem);
 
       p {
         margin-top: 0;

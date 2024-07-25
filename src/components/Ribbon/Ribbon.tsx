@@ -16,7 +16,12 @@ export default function Ribbon(props: RibbonProps) {
     "ribbon",
     cfd.fields.theme
   )
-  const sentences = cfd.fields.sentences.split("\n")
+  let sentences = cfd.fields.sentences.split("\n")
+  // Fix for larger displays
+  sentences = [
+    ...sentences,
+    ...sentences
+  ]
   return (
     <div className={containerClasses}>
       <Marquee>

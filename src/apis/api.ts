@@ -1,14 +1,44 @@
 "use server"
-import { createClient } from 'contentful';
+import {createClient, EntryFieldTypes, Entry, BaseEntry, EntrySkeletonType} from 'contentful';
+import {TypePage} from "@/types/contentful"
+
+type PageEntry = {
+  contentTypeId: "page",
+  fields: {
+    title: EntryFieldTypes.Text,
+    description: EntryFieldTypes.Text,
+    slug: EntryFieldTypes.Text,
+    frontPage: EntryFieldTypes.Boolean,
+    content: Array<EntryFieldTypes.EntryLink<EntrySkeletonType>>
+  }
+}
+
+export async function getPageFromSlug(slug: string): Promise<Entry<PageEntry>> {
+  const entries = await getEntries()
+  let entry
+  if (!slug) {
+    entry = entries.find((e: Entry<PageEntry>) => e.fields.frontPage)
+  } else {
+    entry = entries.find((e: Entry<PageEntry>) => e.fields.slug === slug)
+  }
+
+  if (!entry) {
+    throw new Error("Entry not found")
+  }
+
+  return entry
+}
 
 export async function getEntries() {
-  if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_TOKEN) return []
+  if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_TOKEN) {
+    throw new Error("Contentful has not been configured.")
+  }
 
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
-  const res = await client.getEntries({
+  const res = await client.getEntries<PageEntry>({
     content_type: "page",
     include: 10
   })

@@ -11,6 +11,10 @@
     font-family: "lupio black", sans-serif;
     margin: 0;
     padding: 5rem 0 0;
+
+    @include desktop-xl {
+      font-size: 100px;
+    }
   }
 
   p {

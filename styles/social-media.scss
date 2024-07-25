@@ -7,6 +7,10 @@
     font-size: 8vw;
     font-weight: 900;
     margin-bottom: 0;
+
+    @include desktop-xl {
+      font-size: 100px;
+    }
   }
 
   p {
@@ -18,14 +22,20 @@
   .channels {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    margin-bottom: 1rem;
 
     .channel {
       display: flex;
       flex-direction: column;
+      text-decoration: none;
 
       .image {
         text-align: center;
+      }
+
+      .username {
+        display: none;
       }
     }
   }

@@ -33,6 +33,10 @@
         @include mobile {
           font-size: 12vw;
         }
+
+        @include desktop-xl {
+          font-size: 120px;
+        }
       }
 
       h2 {
@@ -46,6 +50,10 @@
 
         @include mobile {
           font-size: 8vw;
+        }
+
+        @include desktop-xl {
+          font-size: 80px;
         }
       }
 

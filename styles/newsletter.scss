@@ -11,6 +11,10 @@
     line-height: 8vw;
     text-align: center;
     color: #356967;
+
+    @include desktop-xl {
+      font-size: 150px;
+    }
   }
 
   .left {
@@ -46,6 +50,10 @@
       text-transform: uppercase;
       color: rgba(241, 232, 219, 1);
       margin: 0;
+
+      @include desktop-xl {
+        font-size: 200px;
+      }
     }
 
     p {

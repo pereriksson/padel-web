@@ -8,9 +8,11 @@ export default function Placard(props: PlacardProps) {
   const {cfd} = props
 
   return (
-    <div className="placard">
-      <h2>{cfd.fields.headline}</h2>
-      {documentToReactComponents(cfd.fields.paragraph)}
+    <div className="container">
+      <div className="placard">
+        <h2>{cfd.fields.headline}</h2>
+        {documentToReactComponents(cfd.fields.paragraph)}
+      </div>
     </div>
   )
 }

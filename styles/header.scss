@@ -73,9 +73,15 @@
       background: transparent;
       border: 0;
       padding: 0;
+      display: none;
+      cursor: pointer;
 
-      @include desktop {
-        display: none;
+      @include mobile {
+        display: block;
+      }
+
+      @include tablet {
+        display: block;
       }
 
       .segment {

@@ -5,6 +5,10 @@
   max-height: 100px;
   overflow: hidden;
 
+  @include desktop {
+    height: 4rem;
+  }
+
   .rfm-initial-child-container,
   .rfm-marquee-container,
   .rfm-child,

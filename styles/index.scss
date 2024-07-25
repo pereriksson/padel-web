@@ -40,7 +40,13 @@ textarea {
 }
 
 @mixin desktop {
-  @media (min-width: 901px) {
+  @media (min-width: 901px) and (max-width: 1499px) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: 1500px) {
     @content;
   }
 }

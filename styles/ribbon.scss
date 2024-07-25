@@ -5,15 +5,9 @@
   max-height: 100px;
   overflow: hidden;
 
-  .rfm-initial-child-container {
-    gap: 1rem;
-  }
-
-  .rfm-child {
-    display: flex;
-    gap: 1rem;
-  }
-
+  .rfm-initial-child-container,
+  .rfm-marquee-container,
+  .rfm-child,
   .rfm-marquee {
     display: flex;
     gap: 1rem;

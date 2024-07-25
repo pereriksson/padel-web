@@ -24,9 +24,7 @@ export default function Ribbon(props: RibbonProps) {
           return (
             <Fragment key={index}>
               <span key={index}>{sentence}</span>
-              {index < sentences.length - 1 && (
-                <Image src="/images/racket.svg" width="20" height="20" className={cfd.fields.theme} alt=""/>
-              )}
+              <Image src="/images/racket.svg" width="20" height="20" className={cfd.fields.theme} alt=""/>
             </Fragment>
           )
         })}

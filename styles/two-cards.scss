@@ -26,8 +26,15 @@
     }
 
     .card {
-      padding: 1rem;
       width: calc(50% - .5rem);
+
+      .inner {
+        padding: 1rem;
+      }
+
+      @include mobile {
+        width: 100%;
+      }
 
       p {
         margin-top: 0;

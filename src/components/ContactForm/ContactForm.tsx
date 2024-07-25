@@ -21,8 +21,12 @@ export default function ContactForm(props: TwoColumnProps) {
     const phone = form.get("phone")
     const message = form.get("message")
 
-    if (!email || !message) {
-      return setMsg("Please enter an email address and a message.")
+    if (!email) {
+      return setMsg("Please enter an email address.")
+    }
+
+    if (cfd.fields.showMessage && !message) {
+      return setMsg("Please enter a message.")
     }
 
     await sendEmail(
@@ -57,7 +61,9 @@ export default function ContactForm(props: TwoColumnProps) {
               <input type="text" name="lastName" autoComplete="family-name" placeholder="Last Name"/>
               <input type="email" name="email" className="email" autoComplete="email" placeholder="Email"/>
               <input type="tel" name="phone" className="phone" autoComplete="tel" placeholder="Phone Number"/>
-              <textarea name="message" placeholder="Message"></textarea>
+              {cfd.fields.showMessage && (
+                <textarea name="message" placeholder="Message"></textarea>
+              )}
               <div>
                 <button type="submit">Send</button>
               </div>

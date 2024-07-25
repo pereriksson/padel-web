@@ -14,10 +14,14 @@ export default function TwoCards(props: TwoCardsProps) {
         {documentToReactComponents(cfd.fields.firstParagraph)}
         <div className="cards">
           <div className="card left-card">
-            {documentToReactComponents(cfd.fields.leftCard)}
+            <div className="inner">
+              {documentToReactComponents(cfd.fields.leftCard)}
+            </div>
           </div>
           <div className="card right-card">
-            {documentToReactComponents(cfd.fields.rightCard)}
+            <div className="inner">
+              {documentToReactComponents(cfd.fields.rightCard)}
+            </div>
           </div>
         </div>
         {documentToReactComponents(cfd.fields.secondParagraph)}

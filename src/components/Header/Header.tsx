@@ -9,7 +9,7 @@ export default function Header() {
   const [showDrawer, setShowDrawer] = useState<boolean>(false)
 
   const drawerClasses = classNames({
-    "header__drawer": true,
+    "header__drawer__drawer": true,
     "visible": showDrawer
   })
 
@@ -41,26 +41,28 @@ export default function Header() {
           <div className="header__inner__button">
             <button>Book here</button>
           </div>
-          <div>
             <button className="header__inner__mobile-menu" onClick={toggleDrawer}>
               <div className="segment"></div>
               <div className="segment"></div>
               <div className="segment"></div>
             </button>
-          </div>
         </div>
       </div>
-      <OutsideClickHandler onOutsideClick={() => setShowDrawer(false)}>
-        <div className={drawerClasses}>
-          <menu>
-            {links.map((l, index) => (
-              <li key={index}>
-                <Link onClick={() => setShowDrawer(false)} href={l[0]}>{l[1]}</Link>
-              </li>
-            ))}
-          </menu>
-        </div>
-      </OutsideClickHandler>
+      <div className="header__drawer">
+        <OutsideClickHandler onOutsideClick={() => setShowDrawer(false)}>
+          <div className={drawerClasses}>
+            <div className="header__drawer__drawer__inner">
+              <menu>
+                {links.map((l, index) => (
+                  <li key={index}>
+                    <Link onClick={() => setShowDrawer(false)} href={l[0]}>{l[1]}</Link>
+                  </li>
+                ))}
+              </menu>
+            </div>
+          </div>
+        </OutsideClickHandler>
+      </div>
     </div>
   )
 }

@@ -19,10 +19,12 @@ import ContentfulEntry from "@/components/ContentfulEntry/ContentfulEntry";
 
 export default async function Home(props: any) {
   const slug = props?.params?.slug ? props.params.slug.join("/") : ''
-
-  const page = await getPageFromSlug(slug)
-
-  if (!page) return <NotFound/>
+  let page
+  try {
+    page = await getPageFromSlug(slug)
+  } catch (e) {
+    return <NotFound/>
+  }
 
   // TODO: Contentful TS issue we need to solve/find
   if (!Array.isArray(page.fields.content)) {
@@ -48,10 +50,13 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const slug = params?.slug ? params.slug.join("/") : ''
-  const page = await getPageFromSlug(slug)
+  let page
+  try {
+    page = await getPageFromSlug(slug)
+  } catch (e) {
+    return {}
+  }
 
-  if (!page) return {}
-  page.fields.description
   return {
     title: `${page.fields.title} | Padel&`,
     description: `${page.fields.description}`

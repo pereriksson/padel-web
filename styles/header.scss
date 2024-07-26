@@ -2,6 +2,15 @@
   background: rgba(31, 91, 90, 1);
   height: 107px;
 
+  &__links {
+    &__link {
+      a {
+        display: inline-block;
+        padding: .5rem;
+      }
+    }
+  }
+
   &__inner {
     width: 100%;
     max-width: 1200px;

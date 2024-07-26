@@ -10,7 +10,8 @@ type SubscriptionFormProps = {
 
 export default function SubscriptionForm(props: SubscriptionFormProps) {
   const {cfd} = props
-  const [msg, setMsg] = useState<string>("")
+  const [successMsg, setSuccessMsg] = useState<string>("")
+  const [errorMsg, setErrorMsg] = useState<string>("")
 
   const duration = ["1h", "1,5h", "2"]
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -37,8 +38,20 @@ export default function SubscriptionForm(props: SubscriptionFormProps) {
     const term = form.get("term")
     const message = form.get("message")
 
+    if (!firstName) {
+      return setErrorMsg("Please enter a first name.")
+    }
+
+    if (!lastName) {
+      return setErrorMsg("Please enter a last name.")
+    }
+
     if (!email) {
-      return setMsg("Please enter an email address.")
+      return setErrorMsg("Please enter an email address.")
+    }
+
+    if (!phone) {
+      return setErrorMsg("Please enter a phone number.")
     }
 
     await sendEmail(
@@ -57,7 +70,8 @@ export default function SubscriptionForm(props: SubscriptionFormProps) {
       `
     )
 
-    setMsg("Your message has been sent!")
+    setSuccessMsg("Your application has been sent!")
+    setErrorMsg("")
   }
 
   return (
@@ -68,9 +82,6 @@ export default function SubscriptionForm(props: SubscriptionFormProps) {
       <div className="text">
         <div className="inner">
           <h2>{cfd.fields.title}</h2>
-          {msg && (
-            <p>{msg}</p>
-          )}
           <form onSubmit={sendMsg}>
             <label>First name:</label>
             <input type="text" name="firstName" autoComplete="given-name" placeholder="First Name"/>
@@ -106,6 +117,12 @@ export default function SubscriptionForm(props: SubscriptionFormProps) {
               </select>
             <label>Message:</label>
             <textarea name="message"></textarea>
+            {successMsg && (
+              <p className="success-msg">{successMsg}</p>
+            )}
+            {errorMsg && (
+              <p className="error-msg">{errorMsg}</p>
+            )}
             <div>
               <button type="submit">
                 Subscribe

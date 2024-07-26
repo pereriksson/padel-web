@@ -29,46 +29,39 @@ export default function SubscriptionForm(props: SubscriptionFormProps) {
       <div className="text">
         <div className="inner">
           <h2>{cfd.fields.title}</h2>
-          <div>
+          <form>
             <label>Duration</label>
             <select name="duration">
               {duration.map((duration, index) => (
                 <option key={index} value={duration}>{duration}</option>
               ))}
             </select>
-          </div>
-          <div>
             <label>Day</label>
             <select name="day">
               {days.map((day, index) => (
                 <option key={index} value={day}>{day}</option>
               ))}
             </select>
-          </div>
-          <div>
             <label>Starting time:</label>
             <select name="starting-time">
               {hours.map((hour, index) => (
                 <option key={index} value={hour}>{hour}</option>
               ))}
             </select>
-          </div>
-          <div>
             <label>Term:</label>
             <select name="starting-time">
               {terms.map((term, index) => (
                 <option key={index} value={term}>{term}</option>
               ))}
-            </select>
-          </div>
-          <div>
+              </select>
+            <label>Message:</label>
             <textarea name="message"></textarea>
-          </div>
-          <div>
-            <button type="submit">
-              Subscribe
-            </button>
-          </div>
+            <div>
+              <button type="submit">
+                Subscribe
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

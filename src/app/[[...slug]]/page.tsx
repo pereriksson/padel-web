@@ -13,16 +13,9 @@ import MembershipBenefits from "@/components/MembershipBenefits/MembershipBenefi
 import TwoCards from "@/components/TwoCards/TwoCards";
 import Text from "@/components/Text/Text"
 import {getPageFromSlug} from "@/apis/api";
-
-type Entry = {
-  sys: {
-    contentType: {
-      sys: {
-        id: string;
-      }
-    }
-  }
-}
+import SubscriptionForm from "@/components/SubscriptionForm/SubscriptionForm";
+import Subscription from "@/components/Subscription/Subscription";
+import ContentfulEntry from "@/components/ContentfulEntry/ContentfulEntry";
 
 export default async function Home(props: any) {
   const slug = props?.params?.slug ? props.params.slug.join("/") : ''
@@ -31,33 +24,16 @@ export default async function Home(props: any) {
 
   if (!page) return <NotFound/>
 
+  // TODO: Contentful TS issue we need to solve/find
+  if (!Array.isArray(page.fields.content)) {
+    return <NotFound/>
+  }
+
   return (
     <Fragment>
-      {Array.isArray(page.fields.content) && page.fields.content.map((c: any, index: number) => {
-        const mapContentTypeToComponent = new Map<string, any>(
-          [
-            ["hero", Hero],
-            ["ribbon", Ribbon],
-            ["twoColumn", TwoColumn],
-            ["bulletinBoard", BulletinBoard],
-            ["newsletter", Newsletter],
-            ["contactForm", ContactForm],
-            ["socialMedia", SocialMedia],
-            ["placard", Placard],
-            ["membershipBenefits", MembershipBenefits],
-            ["twoCards", TwoCards],
-            ["text", Text]
-          ]
-        )
-
-        const Component = mapContentTypeToComponent.get(c.sys.contentType.sys.id)
-
-        if (!Component) return null
-
-        return (
-          <Component key={index} cfd={c}/>
-        )
-      })}
+      {page.fields.content.map((c: any, index: number) => (
+        <ContentfulEntry key={index} c={c}/>
+      ))}
     </Fragment>
   );
 }

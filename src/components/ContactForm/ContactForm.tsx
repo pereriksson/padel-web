@@ -30,7 +30,7 @@ export default function ContactForm(props: TwoColumnProps) {
     }
 
     await sendEmail(
-      "Contact form",
+      cfd.fields.title,
       `
       First name: ${firstName}
       Last name: ${lastName}

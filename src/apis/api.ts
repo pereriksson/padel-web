@@ -1,6 +1,5 @@
 "use server"
 import {createClient, EntryFieldTypes, Entry, BaseEntry, EntrySkeletonType} from 'contentful';
-import {TypePage} from "@/types/contentful"
 
 type PageEntry = {
   contentTypeId: "page",

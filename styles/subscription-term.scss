@@ -1,0 +1,15 @@
+.subscription-term {
+  h2 {
+    color: #1e5b5a;
+    text-transform: uppercase;
+    font-family: "lupio black", sans-serif;
+    font-size: 3.3vw;
+    text-align: center;
+  }
+
+  &__cards {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+}

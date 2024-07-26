@@ -1,0 +1,70 @@
+.subscription-term-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 20rem;
+  padding: 1rem;
+
+  &__left {
+    &__label {
+      color: #1e5b5a;
+      background: #dddedb;
+      font-size: .8rem;
+      border-radius: 1rem;
+      padding: .3rem;
+    }
+  }
+
+  &.white {
+    border: 1px solid #f1ece8;
+
+    h3 {
+      font-family: Inter, sans-serif;
+      font-weight: normal;
+      color: #515151;
+      margin: 0 0 .8rem;
+    }
+
+    .price {
+      font-family: "lupio black", sans-serif;
+      color: #1e5b5a;
+      font-size: 1.8rem;
+    }
+  }
+
+  &.light {
+    background: #f1ece8;
+
+    h3 {
+      font-family: Inter, sans-serif;
+      font-weight: normal;
+      color: #1e5b5a;
+      margin: 0 0 .8rem;
+    }
+
+    .price {
+      font-family: "lupio black", sans-serif;
+      color: #1e5b5a;
+      font-size: 1.8rem;
+    }
+  }
+
+  &.dark {
+    color: #fff;
+    background: #123a3a;
+
+    h3 {
+      font-family: Inter, sans-serif;
+      font-weight: normal;
+      color: #fff;
+      margin: 0 0 .8rem;
+    }
+
+    .price {
+      font-family: "lupio black", sans-serif;
+      color: #fff;
+      font-size: 1.8rem;
+    }
+  }
+}

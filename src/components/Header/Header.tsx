@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import {useState} from "react";
+import React, {MouseEventHandler, useState} from "react";
 import classNames from "classnames";
 import OutsideClickHandler from 'react-outside-click-handler';
 import {Menu, MenuItem as MUIMenuItem} from "@mui/material";
@@ -15,6 +15,7 @@ type MenuItem = {
 
 export default function Header() {
   const [showDrawer, setShowDrawer] = useState<boolean>(false)
+  const router = useRouter()
 
   const drawerClasses = classNames({
     "header__drawer__drawer": true,
@@ -68,14 +69,16 @@ export default function Header() {
               <MenuItem key={index} item={item}/>
             ))}
           </div>
-          <div className="header__inner__button">
-            <button>Book here</button>
-          </div>
+          <div className="header__links__right">
+            <div className="header__inner__button">
+              <button onClick={() => router.push("/booking")}>Book here</button>
+            </div>
             <button className="header__inner__mobile-menu" onClick={toggleDrawer}>
               <div className="segment"></div>
               <div className="segment"></div>
               <div className="segment"></div>
             </button>
+          </div>
         </div>
       </div>
       <div className="header__drawer">
@@ -107,7 +110,7 @@ function MobileMenuItem(props: MobileMenuItemProps) {
 
   if (item.children) {
     return item.children.map((child: MenuItem, index: number) => (
-      <Link onClick={() => setShowDrawer(false)} href={child.href}>{child.label}</Link>
+      <Link key={index} onClick={() => setShowDrawer(false)} href={child.href}>{child.label}</Link>
     ))
   }
 
@@ -126,7 +129,7 @@ function MenuItem(props: MenuItemProps) {
   const [open, setOpen] = useState<boolean>(false)
   const [anchorEl, setAnchorEl] = useState(null)
 
-  const handleClick = (event) => {
+  const handleClick = (event: any) => {
     setOpen(true)
     setAnchorEl(event.currentTarget)
   }

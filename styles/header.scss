@@ -3,6 +3,11 @@
   height: 107px;
 
   &__links {
+    &__right {
+      display: flex;
+      gap: 1rem;
+    }
+
     &__link {
       a {
         display: inline-block;

@@ -13,7 +13,7 @@ export default function SubscriptionForm(props: SubscriptionFormProps) {
   const [successMsg, setSuccessMsg] = useState<string>("")
   const [errorMsg, setErrorMsg] = useState<string>("")
 
-  const duration = ["1h", "1,5h", "2"]
+  const duration = ["1h", "1,5h", "2h"]
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   const hours = []
   for (let i = 6; i <= 11; i++) {

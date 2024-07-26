@@ -134,6 +134,11 @@ function MenuItem(props: MenuItemProps) {
     setAnchorEl(event.currentTarget)
   }
 
+  const handleLinkClick = (href: string) => {
+    setOpen(false)
+    router.push(href)
+  }
+
   if (!item.children) {
     return (
       <div className="header__links__link">
@@ -155,7 +160,7 @@ function MenuItem(props: MenuItemProps) {
           anchorEl={anchorEl}
         >
           {item.children.map((l, index) => (
-            <MUIMenuItem key={index} onClick={() => router.push(l.href)}>{l.label}</MUIMenuItem>
+            <MUIMenuItem key={index} onClick={() => handleLinkClick(l.href)}>{l.label}</MUIMenuItem>
           ))}
         </Menu>
       )}

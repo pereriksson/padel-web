@@ -22,45 +22,29 @@
 
       h1 {
         font-family: "lupio black", sans-serif;
-        font-size: 7vw;
+        font-size: clamp(1.5rem, 7vw, 120px);
         font-weight: 900;
         letter-spacing: -0.01em;
         text-align: left;
         color: rgba(241, 232, 219, 1);
         text-transform: uppercase;
         margin: 0;
-
-        @include mobile {
-          font-size: 12vw;
-        }
-
-        @include desktop-xl {
-          font-size: 120px;
-        }
       }
 
       h2 {
         font-family: "lupio black", sans-serif;
-        font-size: 4vw;
+        font-size: clamp(1rem, 4vw, 80px);
         font-weight: 900;
         text-align: left;
         color: rgba(241, 232, 219, 1);
         text-transform: uppercase;
         margin: 0;
-
-        @include mobile {
-          font-size: 8vw;
-        }
-
-        @include desktop-xl {
-          font-size: 80px;
-        }
       }
 
       p {
         color: rgba(241, 232, 219, 1);
         font-family: Inter, sans-serif;
-        font-size: 1.5rem;
+        font-size: clamp(1rem, 2vw, 3rem);
       }
     }
 

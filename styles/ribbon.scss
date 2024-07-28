@@ -1,13 +1,9 @@
 .ribbon {
   display: flex;
   align-items: center;
-  height: 16vw;
+  height: 4rem;
   max-height: 100px;
   overflow: hidden;
-
-  @include desktop {
-    height: 4rem;
-  }
 
   .rfm-initial-child-container,
   .rfm-marquee-container,

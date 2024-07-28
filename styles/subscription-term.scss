@@ -4,7 +4,7 @@
     color: #1e5b5a;
     text-transform: uppercase;
     font-family: "lupio black", sans-serif;
-    font-size: 3.3vw;
+    font-size: clamp(1.5rem, 3.3vw, 41px);
     text-align: center;
   }
 

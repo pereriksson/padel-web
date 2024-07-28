@@ -44,16 +44,12 @@
 
     h2 {
       font-family: "Lupio Black", sans-serif;
-      font-size: 10vw;
+      font-size: clamp(2rem, 10vw, 150px);
       font-weight: 900;
       text-align: center;
       text-transform: uppercase;
       color: rgba(241, 232, 219, 1);
       margin: 0;
-
-      @include desktop-xl {
-        font-size: 200px;
-      }
     }
 
     p {

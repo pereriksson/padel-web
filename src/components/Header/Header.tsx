@@ -85,13 +85,21 @@ export default function Header() {
         <OutsideClickHandler onOutsideClick={() => setShowDrawer(false)}>
           <div className={drawerClasses}>
             <div className="header__drawer__drawer__inner">
-              <menu>
-                {links.map((item, index) => (
-                  <li key={index}>
-                    <MobileMenuItem key={index} item={item} setShowDrawer={setShowDrawer}/>
-                  </li>
-                ))}
-              </menu>
+              <div className="left">
+                <menu>
+                  {links.map((item, index) => (
+                    <li key={index}>
+                      <MobileMenuItem key={index} item={item} setShowDrawer={setShowDrawer}/>
+                    </li>
+                  ))}
+                </menu>
+              </div>
+              <div className="right">
+                <button className="close-btn" onClick={() => setShowDrawer(false)}>
+                  <div className="segment"></div>
+                  <div className="segment"></div>
+                </button>
+              </div>
             </div>
           </div>
         </OutsideClickHandler>

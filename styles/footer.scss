@@ -19,7 +19,7 @@
 
     &__right {
       display: flex;
-      gap: 3rem;
+      column-gap: 3rem;
       flex-wrap: wrap;
 
       &__column {

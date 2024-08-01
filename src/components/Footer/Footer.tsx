@@ -14,12 +14,12 @@ export default function Footer() {
               <h2>Visit us</h2>
               <p>165 Eileen Way, Syosset,<br/>
                 Long Island, New York, USA<br/>
-                Questions? Email us at <Link target="_blank" href="mailto:hello@padeland.com">hello@padeland.com</Link><br/>
+                Questions? Email us at <Link target="_blank" href="mailto:hello@padeland.us">hello@padeland.us</Link><br/>
                 We’ll answer you within 24 hours</p>
             </div>
             <div className="footer__inner__right__column">
               <h2>OUR HOURS</h2>
-              <p>We are open from 6:00 AM to 11:30 PM. {/*All bookings must be made at <Link href="/bookhere">padeland.com/bookhere</Link>*/}</p>
+              <p>We are open from 6:00 AM to 11:30 PM. {/*All bookings must be made at <Link href="/bookhere">padeland.us/bookhere</Link>*/}</p>
             </div>
             <div className="footer__inner__right__column">
               <h2>KEEP IN TOUCH</h2>
@@ -30,7 +30,7 @@ export default function Footer() {
             <div className="footer__inner__right__column">
               <h2>FOR MEDIA INQUIRIES</h2>
               <p>For media inquiries<br/>
-                Email us at <Link target="_blank" href="mailto:hello@padeland.com">hello@padeland.com</Link></p>
+                Email us at <Link target="_blank" href="mailto:hello@padeland.us">hello@padeland.us</Link></p>
             </div>
           </div>
         </div>

@@ -28,7 +28,12 @@ export default function Newsletter(props: NewsletterProps) {
       return
     }
 
-    await subscribeUserToList(email.current.value)
+    window.grecaptcha.ready(function() {
+      window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, {action: 'submit'}).then(async function (token: string) {
+        email.current && await subscribeUserToList(email.current.value, token)
+      })
+    })
+
     setMsg("You have now been subscribed!")
   }
 

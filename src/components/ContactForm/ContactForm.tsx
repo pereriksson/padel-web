@@ -29,19 +29,28 @@ export default function ContactForm(props: TwoColumnProps) {
       return setMsg("Please enter a message.")
     }
 
-    await sendEmail(
-      cfd.fields.title,
-      `
-      First name: ${firstName}
-      Last name: ${lastName}
-      Email: ${email}
-      Phone: ${phone}
-      Message:
-      ${message}
-      `
-    )
+    window.grecaptcha.ready(function() {
+      window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, {action: 'submit'}).then(async function (token: string) {
+        const successful = await sendEmail(
+          cfd.fields.title,
+          `
+          First name: ${firstName}
+          Last name: ${lastName}
+          Email: ${email}
+          Phone: ${phone}
+          Message:
+          ${message}
+          `,
+          token
+        )
 
-    setMsg("Your message has been sent!")
+        if (successful) {
+          setMsg("Your message has been sent!")
+        } else {
+          setMsg("Your message could not be sent. Please contact us at hello@padeland.com.")
+        }
+      })
+    })
   }
 
   return (

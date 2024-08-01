@@ -54,24 +54,34 @@ export default function SubscriptionForm(props: SubscriptionFormProps) {
       return setErrorMsg("Please enter a phone number.")
     }
 
-    await sendEmail(
-      cfd.fields.title,
-      `
-      First name: ${firstName}
-      Last name: ${lastName}
-      Email: ${email}
-      Phone: ${phone}
-      Duration: ${duration}
-      Day: ${day}
-      Starting time: ${startingTime}
-      Term: ${term}
-      Message:
-      ${message}
-      `
-    )
+    window.grecaptcha.ready(function() {
+      window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, {action: 'submit'}).then(async function(token: string) {
+        const successful = await sendEmail(
+          cfd.fields.title,
+          `
+          First name: ${firstName}
+          Last name: ${lastName}
+          Email: ${email}
+          Phone: ${phone}
+          Duration: ${duration}
+          Day: ${day}
+          Starting time: ${startingTime}
+          Term: ${term}
+          Message:
+          ${message}
+          `,
+          token
+        )
 
-    setSuccessMsg("Your application has been sent!")
-    setErrorMsg("")
+        if (successful) {
+          setSuccessMsg("Your application has been sent!")
+          setErrorMsg("")
+        } else {
+          setSuccessMsg("")
+          setErrorMsg("Your message could not be sent. Please contact us at hello@padeland.com.")
+        }
+      });
+    });
   }
 
   return (

@@ -12,5 +12,8 @@ module.exports = {
                 hostname: 'images.ctfassets.net'
             }
         ]
+    },
+    experimental: {
+        scrollRestoration: true,
     }
 };

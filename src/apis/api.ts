@@ -1,5 +1,18 @@
 "use server"
 import {createClient, EntryFieldTypes, Entry, BaseEntry, EntrySkeletonType} from 'contentful';
+import axios from "axios";
+import {headers} from "next/headers"
+
+function getClientIp() {
+  const FALLBACK_IP_ADDRESS = '0.0.0.0'
+  const forwardedFor = headers().get('x-forwarded-for')
+
+  if (forwardedFor) {
+    return forwardedFor.split(',')[0] ?? FALLBACK_IP_ADDRESS
+  }
+
+  return headers().get('x-real-ip') ?? FALLBACK_IP_ADDRESS
+}
 
 type PageEntry = {
   contentTypeId: "page",
@@ -44,7 +57,36 @@ export async function getEntries() {
   return res.items
 }
 
-export async function sendEmail(subject: string, msg: string) {
+type RecaptchaResponse = {
+  success: boolean
+  challenge_ts: string
+  hostname: string
+  score: number
+  action: string
+}
+
+export async function verifyRecaptcha(response: string): Promise<RecaptchaResponse> {
+  return axios.post<RecaptchaResponse>("https://www.google.com/recaptcha/api/siteverify", null, {
+    params: {
+      secret: process.env.RECAPTCHA_SECRET_KEY,
+      response: response,
+      remoteip: getClientIp()
+    }
+  })
+    .then(res => res.data)
+}
+
+export async function sendEmail(subject: string, msg: string, token: string) {
+  const res = await verifyRecaptcha(token)
+
+  if (!res.success) {
+    return false
+  }
+
+  if (res.score < .5) {
+    return false
+  }
+
   const sgMail = require('@sendgrid/mail')
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
@@ -55,14 +97,26 @@ export async function sendEmail(subject: string, msg: string) {
     text: msg
   }
 
-  sgMail
+  await sgMail
     .send(payload)
     .catch(() => {
       // Fail silently
     })
+
+  return true
 }
 
-export async function subscribeUserToList(emailAddress: string) {
+export async function subscribeUserToList(emailAddress: string, token: string) {
+  const res = await verifyRecaptcha(token)
+
+  if (!res.success) {
+    return false
+  }
+
+  if (res.score < .5) {
+    return false
+  }
+
   const client = require("@mailchimp/mailchimp_marketing");
 
   client.setConfig({
@@ -79,4 +133,5 @@ export async function subscribeUserToList(emailAddress: string) {
     // 400 bad request means user is probably already subscribed
   }
 
+  return true
 }

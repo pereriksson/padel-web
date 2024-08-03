@@ -15,27 +15,29 @@ function getClientIp() {
 }
 
 type PageEntry = {
-  contentTypeId: "page",
+  metadata: {
+    tags: any[]
+  },
   fields: {
-    title: EntryFieldTypes.Text,
-    description: EntryFieldTypes.Text,
-    slug: EntryFieldTypes.Text,
-    frontPage: EntryFieldTypes.Boolean,
-    content: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<EntrySkeletonType>>
+    title?: string,
+    description?: string,
+    slug?: string,
+    frontPage?: boolean,
+    content?: any[]
   }
 }
 
-export async function getPageFromSlug(slug: string): Promise<Entry<PageEntry>|undefined> {
+export async function getPageFromSlug(slug: string): Promise<PageEntry|undefined> {
   const entries = await getEntries()
 
   if (!slug) {
-    return entries.find((e: Entry<PageEntry>) => e.fields.frontPage)
+    return entries.find((e: PageEntry) => e.fields.frontPage)
   }
 
-  return entries.find((e: Entry<PageEntry>) => e.fields.slug === slug)
+  return entries.find((e: PageEntry) => e.fields.slug === slug)
 }
 
-export async function getEntries() {
+export async function getEntries(): Promise<PageEntry[]> {
   if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_ACCESS_TOKEN) {
     throw new Error("Contentful has not been configured.")
   }
@@ -44,11 +46,11 @@ export async function getEntries() {
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
-  const res = await client.getEntries<PageEntry>({
+  const res = await client.getEntries({
     content_type: "page",
     include: 10
   })
-  return res.items
+  return res.items as PageEntry[]
 }
 
 type RecaptchaResponse = {

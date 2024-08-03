@@ -24,14 +24,9 @@ export default async function Home(props: any) {
 
   if (!page) return <NotFound/>
 
-  // TODO: Contentful TS issue to be solved
-  if (!Array.isArray(page.fields.content)) {
-    return <NotFound/>
-  }
-
   return (
     <Fragment>
-      {page.fields.content.map((c: any, index: number) => (
+      {page.fields.content?.map((c: any, index: number) => (
         <ContentfulEntry key={index} c={c}/>
       ))}
     </Fragment>

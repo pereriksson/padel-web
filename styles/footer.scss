@@ -3,6 +3,10 @@
   background: rgba(18, 58, 58, 1);
   padding: 93px 100px;
 
+  @include mobile {
+    padding: 50px;
+  }
+
   &__inner {
     display: flex;
     gap: 153px;
@@ -28,7 +32,7 @@
         h2 {
           font-family: "lupio bold", sans-serif;
           font-size: 15px;
-          line-height: 34.74px;
+          line-height: 25px;
           text-transform: uppercase;
         }
 

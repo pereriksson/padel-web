@@ -1,5 +1,6 @@
 import Image from "next/image";
 import imageUrl from "@/utils/imageUrl";
+import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 
 type HeroProps = {
   cfd: any;
@@ -15,7 +16,7 @@ export default function Hero(props: HeroProps) {
           <div className="hero__inner__left">
             <h1>{cfd.fields.headline}</h1>
             <h2>{cfd.fields.subHeadline}</h2>
-            <p>{cfd.fields.paragraph}</p>
+            {documentToReactComponents(cfd.fields.paragraph)}
           </div>
           <div className="hero__inner__right">
             <Image src={imageUrl(cfd.fields.image.fields.file.url)} fill={true} alt=""/>

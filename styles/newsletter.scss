@@ -63,6 +63,10 @@
       @include mobile {
         font-size: 4vw;
       }
+
+      &.error-msg {
+        color: red;
+      }
     }
 
     input {

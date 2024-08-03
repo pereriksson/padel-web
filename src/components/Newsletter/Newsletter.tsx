@@ -17,24 +17,33 @@ type NewsletterProps = {
 export default function Newsletter(props: NewsletterProps) {
   const {cfd} = props
   const email = useRef<HTMLInputElement>(null)
-  const [msg, setMsg] = useState<string>("")
+  const [successMsg, setSuccessMsg] = useState<string>("")
+  const [errorMsg, setErrorMsg] = useState<string>("")
 
   async function subscribe(e: any) {
     e.preventDefault()
     if (!email.current || !email.current.value) return
 
     if (!validateEmail(email.current.value)) {
-      setMsg("Please enter a valid email address.")
+      setSuccessMsg("Please enter a valid email address.")
       return
     }
 
     window.grecaptcha.ready(function() {
       window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, {action: 'submit'}).then(async function (token: string) {
-        email.current && await subscribeUserToList(email.current.value, token)
+        if (email.current) {
+          const success = await subscribeUserToList(email.current.value, token)
+
+          if (success) {
+            setSuccessMsg("You have now been subscribed!")
+            setErrorMsg("")
+          } else {
+            setSuccessMsg("")
+            setErrorMsg("You could not be subscribed. Please contact us at hello@padeland.com.")
+          }
+        }
       })
     })
-
-    setMsg("You have now been subscribed!")
   }
 
   return (
@@ -45,8 +54,11 @@ export default function Newsletter(props: NewsletterProps) {
       <div className="middle">
         <h2>{cfd.fields.title}</h2>
         <p>{cfd.fields.paragraph}</p>
-        {msg && (
-          <p>{msg}</p>
+        {successMsg && (
+          <p className="success-msg">{successMsg}</p>
+        )}
+        {errorMsg && (
+          <p className="error-msg">{errorMsg}</p>
         )}
         <form>
           <input name="email" type="email" ref={email} placeholder="Email Address"/>

@@ -21,24 +21,18 @@ type PageEntry = {
     description: EntryFieldTypes.Text,
     slug: EntryFieldTypes.Text,
     frontPage: EntryFieldTypes.Boolean,
-    content: Array<EntryFieldTypes.EntryLink<EntrySkeletonType>>
+    content: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<EntrySkeletonType>>
   }
 }
 
-export async function getPageFromSlug(slug: string): Promise<Entry<PageEntry>> {
+export async function getPageFromSlug(slug: string): Promise<Entry<PageEntry>|undefined> {
   const entries = await getEntries()
-  let entry
+
   if (!slug) {
-    entry = entries.find((e: Entry<PageEntry>) => e.fields.frontPage)
-  } else {
-    entry = entries.find((e: Entry<PageEntry>) => e.fields.slug === slug)
+    return entries.find((e: Entry<PageEntry>) => e.fields.frontPage)
   }
 
-  if (!entry) {
-    throw new Error("Entry not found")
-  }
-
-  return entry
+  return entries.find((e: Entry<PageEntry>) => e.fields.slug === slug)
 }
 
 export async function getEntries() {

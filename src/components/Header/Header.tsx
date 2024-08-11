@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, {MouseEventHandler, useState} from "react";
 import classNames from "classnames";
 import OutsideClickHandler from 'react-outside-click-handler';
-import {Menu, MenuItem as MUIMenuItem} from "@mui/material";
+import {Menu, MenuItem as MUIMenuItem, Typography} from "@mui/material";
 import {useRouter} from "next/navigation";
 
 type MenuItem = {
@@ -168,7 +168,16 @@ function MenuItem(props: MenuItemProps) {
           anchorEl={anchorEl}
         >
           {item.children.map((l, index) => (
-            <MUIMenuItem key={index} onClick={() => handleLinkClick(l.href)}>{l.label}</MUIMenuItem>
+            <MUIMenuItem key={index} onClick={() => handleLinkClick(l.href)}>
+              <Typography
+                sx={{
+                  fontFamily: "Lupio bold, sans-serif",
+                  color: "#1e5b59",
+                  textTransform: "uppercase"
+                }}>
+                {l.label}
+              </Typography>
+            </MUIMenuItem>
           ))}
         </Menu>
       )}

@@ -5,7 +5,6 @@ export default function MembershipBenefits() {
     <div className="membership-benefits">
       <div className="container">
         <h2>Membership Benefits</h2>
-        <p>As a member, you will receive:</p>
         <div className="grid">
           <div className="card">
             <div className="image">

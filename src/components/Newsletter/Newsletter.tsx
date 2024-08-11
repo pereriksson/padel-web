@@ -1,6 +1,6 @@
 "use client"
 import {subscribeUserToList} from "@/apis/api";
-import {useRef, useState} from "react";
+import {FormEvent, useRef, useState} from "react";
 
 const validateEmail = (email: string) => {
   return String(email)
@@ -20,7 +20,7 @@ export default function Newsletter(props: NewsletterProps) {
   const [successMsg, setSuccessMsg] = useState<string>("")
   const [errorMsg, setErrorMsg] = useState<string>("")
 
-  async function subscribe(e: any) {
+  async function subscribe(e: FormEvent) {
     e.preventDefault()
     if (!email.current || !email.current.value) return
 
@@ -61,7 +61,7 @@ export default function Newsletter(props: NewsletterProps) {
           <p className="error-msg">{errorMsg}</p>
         )}
         <form>
-          <input name="email" type="email" ref={email} placeholder="Email Address"/>
+          <input name="email" type="email" ref={email} placeholder="Email"/>
           <button type="submit" onClick={subscribe}>Submit</button>
         </form>
       </div>

@@ -72,9 +72,14 @@
     input {
       border-radius: 50px;
       border: 0;
-      height: 25px;
+      height: 30px;
       width: 280px;
-      padding: 20px;
+      padding: 0 0 0 10px;
+      background: #F0E8DA;
+
+      &::placeholder {
+        color: #000;
+      }
 
       @include mobile {
         width: 100%;
@@ -83,13 +88,15 @@
 
     button {
       width: 126.38px;
-      height: 63.97px;
+      height: 30px;
       top: 25px;
       left: 534.14px;
-      padding: 20.29px 25.38px 21.68px 26px;
       border-radius: 300px;
       background: rgba(241, 232, 219, 1);
       border: 0;
+      box-shadow: -5.45px 5.45px 0px 0px #8c8782;
+      font-family: "lupio bold", sans-serif;
+      color: #1E5B59;
     }
   }
 }

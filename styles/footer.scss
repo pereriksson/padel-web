@@ -21,6 +21,14 @@
       gap: 0;
     }
 
+    &__logo {
+      .logo {
+        position: relative;
+        width: 143px;
+        aspect-ratio: 143 / 37;
+      }
+    }
+
     &__right {
       display: flex;
       column-gap: 3rem;

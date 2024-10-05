@@ -6,8 +6,10 @@ export default function Footer() {
     <div className="footer">
       <div className="container">
         <div className="footer__inner">
-          <div className="footer_logo">
-            <Image src="/images/logo.png" width="143" height="37" alt="Logo"/>
+          <div className="footer__inner__logo">
+            <div className="logo">
+              <Image src="/images/logo.png" fill={true} alt="Logo"/>
+            </div>
           </div>
           <div className="footer__inner__right">
             <div className="footer__inner__right__column">

@@ -13,6 +13,7 @@ import SubscriptionForm from "@/components/SubscriptionForm/SubscriptionForm";
 import Subscription from "@/components/Subscription/Subscription";
 import SubscriptionTerm from "@/components/SubscriptionTerm/SubscriptionTerm";
 import SubscriptionTermCard from "@/components/SubscriptionTermCard/SubscriptionTermCard";
+import Button from "@/components/Button/Button";
 
 type ContentfulComponentProps = {
   c: any
@@ -36,7 +37,8 @@ export default function ContentfulEntry(props: ContentfulComponentProps) {
       ["subscriptionForm", SubscriptionForm],
       ["subscription", Subscription],
       ["subscriptionTerm", SubscriptionTerm],
-      ["subscriptionTermCard", SubscriptionTermCard]
+      ["subscriptionTermCard", SubscriptionTermCard],
+      ["button", Button]
     ]
   )
 

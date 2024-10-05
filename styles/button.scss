@@ -1,0 +1,22 @@
+.button {
+  margin: 3rem 0;
+
+  button {
+    color: #f1ece8;
+    background: rgba(31, 91, 90, 1);
+    box-shadow: -5.45px 5.45px 0px 0px rgba(18, 58, 58, 1);
+    font-family: "lupio black", sans-serif;
+    font-size: 14px;
+    height: 40px;
+    font-weight: 900;
+    line-height: 21.6px;
+    letter-spacing: 0.34328871965408325px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    cursor: pointer;
+  }
+}

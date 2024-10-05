@@ -542,6 +542,18 @@
     "@sendgrid/client" "^8.1.3"
     "@sendgrid/helpers" "^8.0.0"
 
+"@stripe/react-stripe-js@^2.8.1":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-2.8.1.tgz#63d9a666749f818b1bf4eb788eb1bc57eb496f3d"
+  integrity sha512-C410jVKOATinXLalWotab6E6jlWAlbqUDWL9q1km0p5UHrvnihjjYzA8imYXc4xc4Euf9GeKDQc4n35HKZvgwg==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@stripe/stripe-js@^4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-4.7.0.tgz#b6bbf664e866515edf0b65dcf6517bb7ac1f58e8"
+  integrity sha512-Dfdg8UumBu+zDnBgGw30zEE9PIm8lunDUuwy2Bois9bb2sxCohVbD1PpAnasPIZhYfIbigmTHEr/Hg+56Vue6A==
+
 "@swc/counter@^0.1.3":
   version "0.1.3"
   resolved "https://registry.npmjs.org/@swc/counter/-/counter-0.1.3.tgz"
@@ -883,18 +895,9 @@ axe-core@^4.9.1:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.9.1.tgz"
   integrity sha512-QbUdXJVTpvUTHU7871ppZkdOLBeGUKBQWHkHrvN2V9IQWGMt61zf3B45BtzjxEJzYuj0JBjBZP/hmYS/R9pmAw==
 
-axios@^1.6.8:
+axios@^1.6.8, axios@^1.7.2:
   version "1.7.2"
   resolved "https://registry.npmjs.org/axios/-/axios-1.7.2.tgz"
-  integrity sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==
-  dependencies:
-    follow-redirects "^1.15.6"
-    form-data "^4.0.0"
-    proxy-from-env "^1.1.0"
-
-axios@^1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.2.tgz#b625db8a7051fbea61c35a3cbb3a1daa7b9c7621"
   integrity sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==
   dependencies:
     follow-redirects "^1.15.6"

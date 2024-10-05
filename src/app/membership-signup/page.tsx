@@ -7,7 +7,7 @@ import {
 } from '@stripe/react-stripe-js';
 import {bool} from "prop-types";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY || "");
 
 const CheckoutForm = () => {
   const [error, setError] = useState<boolean>(false)

@@ -39,7 +39,7 @@ const CheckoutForm = () => {
   }
 
   return (
-    <div class="stripe-checkout">
+    <div className="stripe-checkout">
       <EmbeddedCheckoutProvider
         stripe={stripePromise}
         options={options}

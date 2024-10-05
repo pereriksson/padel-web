@@ -52,7 +52,7 @@ const Return = () => {
 
   if (status === 'complete') {
     return (
-      <div class="stripe-success">
+      <div className="stripe-success">
         <h1>Thank you!</h1>
         <p>We appreciate you becoming a member with us!</p>
         <p>A confirmation email will be sent to {customerEmail}.</p>

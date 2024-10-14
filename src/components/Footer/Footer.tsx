@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="footer__inner">
           <div className="footer__inner__logo">
             <div className="logo">
-              <Image src="/images/logo.png" fill={true} alt="Logo"/>
+              <Image src="/images/logo.svg" fill={true} alt="Logo"/>
             </div>
           </div>
           <div className="footer__inner__right">

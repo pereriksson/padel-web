@@ -61,7 +61,7 @@ export default function Header() {
         <div className="links">
           <div className="header__inner__logo">
             <Link href="/">
-              <Image src="/images/logo.png" fill={true} alt="Logo"/>
+              <Image src="/images/logo.svg" fill={true} alt="Logo"/>
             </Link>
           </div>
           <div className="header__links">
